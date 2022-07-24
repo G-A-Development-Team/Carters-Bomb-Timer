@@ -19,6 +19,8 @@ function using(pkgn) file.Write( "\\using/json.lua", http.Get( "https://raw.gith
 --G&A Scripts--
 --https://aimware.net/forum/thread/168242 Shared Music Kit Changer
 --https://aimware.net/forum/thread/168291 Health Bars Plus v0.2
+--https://aimware.net/forum/thread/148544 Health Bars Plus v0.1
+--https://aimware.net/forum/thread/168280 [Library] Draggable/Resizable Windows
 
 local Tab = gui.Tab(gui.Reference("Visuals"), "aa_t", "Carter's Bomb Timer");
 local bt_x = gui.Editbox(Tab, "bt_x", "X")
