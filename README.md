@@ -3,7 +3,7 @@ A Bomb timer created for Aimware based on the design of AdvancedAim's bomb timer
 
 Credit to Agentsix1 & Cheeseout for referencing.
 
-#Features
+# Features
 Draggable around the screen
 Changes color based on the amount of time left on bomb
 Shows the amount of damage you can take based on distance of the bomb
