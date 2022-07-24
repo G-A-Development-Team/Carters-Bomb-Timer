@@ -16,6 +16,9 @@ function using(pkgn) file.Write( "\\using/json.lua", http.Get( "https://raw.gith
 ---  Credit To: Cheeseot   ---
 ---       Bomb Stuff       ---
 ------------------------------
+--G&A Scripts--
+[url=https://aimware.net/forum/thread/168242]Shared Music Kit Changer[/url]
+[url=https://aimware.net/forum/thread/168291]Health Bars Plus v0.2[/url]
 
 local Tab = gui.Tab(gui.Reference("Visuals"), "aa_t", "Carter's Bomb Timer");
 local bt_x = gui.Editbox(Tab, "bt_x", "X")
