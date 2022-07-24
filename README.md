@@ -1,7 +1,7 @@
 # Carters-Bomb-Timer
 A Bomb timer created for Aimware based on the design of AdvancedAim's bomb timer. 
 
-Credit to Agentsix1 & Cheeseout for referencing.
+Credit to Agentsix1 & Cheeseot for references
 
 # Features
 - Draggable around the screen
