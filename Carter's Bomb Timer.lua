@@ -146,9 +146,16 @@ callbacks.Register("Draw", function()
 			FrmTimer.Controls[FrmTimer.Controls.Find("lb_dmg")].Properties.ForeColor = SystemColors.Grey
 			FrmTimer.Controls[FrmTimer.Controls.Find("lb_dmg")].Properties.Text = tostring(hpleft) .. " damage"
 		end
-		
 		if defusing then
 			BombMath = ((globals.CurTime() - Bomb:GetProp("m_flDefuseCountDown")) * (0 - 1)) / ((Bomb:GetProp("m_flDefuseCountDown") - Bomb:GetProp("m_flDefuseLength")) - Bomb:GetProp("m_flDefuseCountDown")) + 1;
 			FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.Value = BombMath
+			
+			bombtimer = math.floor((timePlanted - globals.CurTime() + Bomb:GetProp("m_flTimerLength")) * 10) / 10
+			local defusetime = math.floor((Bomb:GetProp("m_flDefuseCountDown") - globals.CurTime()) * 10) / 10
+			
+			if bombtimer >= defusetime then
+				FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.ValueColor = SystemColors.Blue
+			else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.ValueColor = SystemColors.Red end
+			
 		else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.Value = 0 end
 	else ended = true defusing = false timePlanted = 0 FrmTimer.Visible = false end end)
