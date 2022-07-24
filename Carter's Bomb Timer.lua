@@ -1,5 +1,22 @@
 function using(pkgn) file.Write( "\\using/json.lua", http.Get( "https://raw.githubusercontent.com/G-A-Development-Team/libs/main/json.lua" ) ) LoadScript("\\using/json.lua") local pkg = json.decode(http.Get("https://raw.githubusercontent.com/G-A-Development-Team/Using/main/using.json"))["pkgs"][ pkgn ] if pkg ~= nil then file.Write( "\\using/" .. pkgn .. ".lua", http.Get( pkg ) ) LoadScript("\\using/" .. pkgn .. ".lua") else print("[using] package doesn't exist. {" .. pkgn .. "}") end end
 
+-------------------------------------------------
+--------   Carter's Bomb Timer   ----------------
+--------      Created By:         ---------------
+--------       CarterPoe          ---------------
+--------     Date: 7/24/2022       --------------
+-------------------------------------------------
+--------  Tested By:             ----------------
+--------  Agentsix1              ----------------
+-------------------------------------------------
+--
+-- This is a product of the G&A Development Team
+--
+------------------------------
+---  Credit To: Cheeseot   ---
+---       Bomb Stuff       ---
+------------------------------
+
 local Tab = gui.Tab(gui.Reference("Visuals"), "aa_t", "Carter's Bomb Timer");
 local bt_x = gui.Editbox(Tab, "bt_x", "X")
 local bt_y = gui.Editbox(Tab, "bt_y", "Y")
