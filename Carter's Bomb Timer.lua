@@ -77,13 +77,7 @@ FrmTimer.Initialize = function()
 	lb_dmg.Properties.Font.Size = 15
 	lb_dmg.Properties.Location = point(38, 15)
 	
-	return {
-		pb_bomb,
-		prog_bar,
-		prog_bar_defuse,
-		lb_secs,
-		lb_dmg,
-	}
+	return { pb_bomb, prog_bar, prog_bar_defuse, lb_secs, lb_dmg, }
 end
 FrmTimer = Application.Run(FrmTimer)
 
@@ -92,36 +86,19 @@ local defusing = false
 local ended = false
 
 callbacks.Register("FireGameEvent", function(event)
-	if event:GetName() == "bomb_planted" then
-		timePlanted = globals.CurTime()
-		ended = false
-	end
-	if event:GetName() == "bomb_begindefuse" then
-		defusing = true
-		ended = false
-	end
-	if event:GetName() == "bomb_abortdefuse" then
-		defusing = false
-		ended = false
-	end
-	if event:GetName() == "bomb_defused" then
-		ended = true
-	end
-	if event:GetName() == "bomb_exploded" then
-		ended = true
-	end
-	if event:GetName() == "round_officially_ended" then
-		ended = true
-	end
+	if event:GetName() == "bomb_planted" then timePlanted = globals.CurTime() ended = false end
+	if event:GetName() == "bomb_begindefuse" then defusing = true ended = false end
+	if event:GetName() == "bomb_abortdefuse" then defusing = false ended = false end
+	if event:GetName() == "bomb_defused" then ended = true end
+	if event:GetName() == "bomb_exploded" then ended = true end
+	if event:GetName() == "round_officially_ended" then ended = true end
 end)
 
 callbacks.Register("Draw", function()
 	if FrmTimer.Dragging then
 		bt_x:SetValue(FrmTimer.Location.X)
 		bt_y:SetValue(FrmTimer.Location.Y)
-	else
-		FrmTimer.Location = point(tonumber(bt_x:GetValue()), tonumber(bt_y:GetValue()))
-	end
+	else FrmTimer.Location = point(tonumber(bt_x:GetValue()), tonumber(bt_y:GetValue())) end
 
 	FrmTimer.Visible = not ended
 	
@@ -132,22 +109,14 @@ callbacks.Register("Draw", function()
 		
 		FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb")].Properties.Value = bombtimer
 		
-		if bombtimer <= 0 then
-			FrmTimer.Visible = false
-		end
+		if bombtimer <= 0 then FrmTimer.Visible = false end
 		
-		if bombtimer <= 5 then
-			FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb")].Properties.ValueColor = SystemColors.Red
-		elseif bombtimer <= 10 then
-			FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb")].Properties.ValueColor = SystemColors.Yellow
-		else
-			FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb")].Properties.ValueColor = SystemColors.Green
-		end
+		if bombtimer <= 5 then FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb")].Properties.ValueColor = SystemColors.Red
+		elseif bombtimer <= 10 then FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb")].Properties.ValueColor = SystemColors.Yellow
+		else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb")].Properties.ValueColor = SystemColors.Green end
 		
 		bombtimer = tostring(bombtimer)
-		if not string.find(bombtimer, "%.") then
-			bombtimer = bombtimer .. ".0"
-		end
+		if not string.find(bombtimer, "%.") then bombtimer = bombtimer .. ".0" end
 		
 		FrmTimer.Controls[FrmTimer.Controls.Find("lb_bomb")].Properties.Text = bombtimer .. "s"
 		
@@ -163,13 +132,6 @@ callbacks.Register("Draw", function()
 		if defusing then
 			BombMath = ((globals.CurTime() - Bomb:GetProp("m_flDefuseCountDown")) * (0 - 1)) / ((Bomb:GetProp("m_flDefuseCountDown") - Bomb:GetProp("m_flDefuseLength")) - Bomb:GetProp("m_flDefuseCountDown")) + 1;
 			FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.Value = BombMath
-		else
-			FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.Value = 0
-		end
-	else
-		ended = true
-		defusing = false
-		timePlanted = 0
-		FrmTimer.Visible = false
-	end
+		else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.Value = 0 end
+	else ended = true defusing = false timePlanted = 0 FrmTimer.Visible = false end
 end)
