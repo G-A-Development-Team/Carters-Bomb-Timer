@@ -155,7 +155,7 @@ callbacks.Register("Draw", function()
 			
 			if bombtimer >= defusetime then
 				FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.ValueColor = SystemColors.Blue
-			else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.ValueColor = SystemColors.Red end
+			else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.ValueColor = SystemColors.Yellow end
 			
 		else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.Value = 0 end
 	else ended = true defusing = false timePlanted = 0 FrmTimer.Visible = false end end)
