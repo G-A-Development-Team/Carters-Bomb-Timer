@@ -81,9 +81,7 @@ FrmTimer.Initialize = function()
 end
 FrmTimer = Application.Run(FrmTimer)
 
-local timePlanted = 0
-local defusing = false
-local ended = false
+local timePlanted = 0 local defusing = false local ended = false
 
 callbacks.Register("FireGameEvent", function(event)
 	if event:GetName() == "bomb_planted" then timePlanted = globals.CurTime() ended = false end
@@ -133,5 +131,4 @@ callbacks.Register("Draw", function()
 			BombMath = ((globals.CurTime() - Bomb:GetProp("m_flDefuseCountDown")) * (0 - 1)) / ((Bomb:GetProp("m_flDefuseCountDown") - Bomb:GetProp("m_flDefuseLength")) - Bomb:GetProp("m_flDefuseCountDown")) + 1;
 			FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.Value = BombMath
 		else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.Value = 0 end
-	else ended = true defusing = false timePlanted = 0 FrmTimer.Visible = false end
-end)
+	else ended = true defusing = false timePlanted = 0 FrmTimer.Visible = false end end)
