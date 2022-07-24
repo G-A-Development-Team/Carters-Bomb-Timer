@@ -11,28 +11,10 @@ using "WinFormToolbox"
 using "WinForm"
 using "BombAPI"
 
-if tonumber(bt_x:GetValue()) == nil then
-	bt_x:SetValue("30")
-end
-
-if tonumber(bt_y:GetValue()) == nil then
-	bt_y:SetValue("350")
-end
-
-local function getX()
-	if tonumber(bt_x:GetValue()) == nil then
-		return 30
-	else
-		return tonumber(bt_x:GetValue())
-	end
-end
-local function getY()
-	if tonumber(bt_y:GetValue()) == nil then
-		return 350
-	else
-		return tonumber(bt_y:GetValue())
-	end
-end
+if tonumber(bt_x:GetValue()) == nil then bt_x:SetValue("30") end
+if tonumber(bt_y:GetValue()) == nil then bt_y:SetValue("350") end
+local function getX() if tonumber(bt_x:GetValue()) == nil then return 30 else return tonumber(bt_x:GetValue()) end end
+local function getY() if tonumber(bt_y:GetValue()) == nil then return 350 else return tonumber(bt_y:GetValue()) endend
 
 local FrmTimer = {
 	Name = "FrmTimer",
