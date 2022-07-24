@@ -12,7 +12,7 @@ Credit to Agentsix1 & Cheeseot for references
 
 # Utilizes
 - Display engine https://github.com/G-A-Development-Team/WinFormAPI
-- Importing https://github.com/G-A-Development-Team/Using/tree/main
+- Importing https://github.com/G-A-Development-Team/Using/
 
 ![Screenshot 2022-07-24 025731](https://user-images.githubusercontent.com/39221871/180636240-031a755d-0d0d-4b9a-89e8-ddc47d758e80.png)
 ![Screenshot 2022-07-24 025744](https://user-images.githubusercontent.com/39221871/180636248-1fda6cfa-a563-4831-a0f9-89fd235f63f5.png)
