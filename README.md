@@ -6,6 +6,7 @@ Credit to Agentsix1 & Cheeseout for referencing.
 # Features
 Draggable around the screen
 Changes color based on the amount of time left on bomb
+Shows another bar for defusing
 Shows the amount of damage you can take based on distance of the bomb
 Displays time left until the bomb explodes
 
