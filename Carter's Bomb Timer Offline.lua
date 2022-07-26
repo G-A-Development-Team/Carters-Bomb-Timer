@@ -1,3 +1,24 @@
+-------------------------------------------------
+--------   Carter's Bomb Timer   ----------------
+--------      Created By:         ---------------
+--------       CarterPoe          ---------------
+--------     Date: 7/24/2022       --------------
+-------------------------------------------------
+--------  Tested By:             ----------------
+--------  Agentsix1              ----------------
+-------------------------------------------------
+--
+-- This is a product of the G&A Development Team
+--
+------------------------------
+---  Credit To: Cheeseot   ---
+---       Bomb Stuff       ---
+------------------------------
+--G&A Scripts--
+--https://aimware.net/forum/thread/168242 Shared Music Kit Changer
+--https://aimware.net/forum/thread/168291 Health Bars Plus v0.2
+
+
 -- Pasted from https://github.com/tg021/tt/blob/master/dkjson.lua
 
 -- Download and run the library. Place the download code below in your script.
@@ -1622,26 +1643,6 @@ client.AllowListener("bomb_exploded")
 client.AllowListener("round_officially_ended")
 client.AllowListener("bomb_defused") 
 
-
--------------------------------------------------
---------   Carter's Bomb Timer   ----------------
---------      Created By:         ---------------
---------       CarterPoe          ---------------
---------     Date: 7/24/2022       --------------
--------------------------------------------------
---------  Tested By:             ----------------
---------  Agentsix1              ----------------
--------------------------------------------------
---
--- This is a product of the G&A Development Team
---
-------------------------------
----  Credit To: Cheeseot   ---
----       Bomb Stuff       ---
-------------------------------
---G&A Scripts--
---https://aimware.net/forum/thread/168242 Shared Music Kit Changer
---https://aimware.net/forum/thread/168291 Health Bars Plus v0.2
 
 local Tab = gui.Tab(gui.Reference("Visuals"), "aa_t", "Carter's Bomb Timer");
 local bt_x = gui.Editbox(Tab, "bt_x", "X")
