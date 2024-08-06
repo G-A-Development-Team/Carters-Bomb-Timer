@@ -1,7 +1,7 @@
 function using(pkgn) file.Write( "\\using/json.lua", http.Get( "https://raw.githubusercontent.com/G-A-Development-Team/libs/main/json.lua" ) ) LoadScript("\\using/json.lua") local pkg = json.decode(http.Get("https://raw.githubusercontent.com/G-A-Development-Team/Using/main/using.json"))["pkgs"][ pkgn ] if pkg ~= nil then file.Write( "\\using/" .. pkgn .. ".lua", http.Get( pkg ) ) LoadScript("\\using/" .. pkgn .. ".lua") else print("[using] package doesn't exist. {" .. pkgn .. "}") end end
 
 -------------------------------------------------
---------   Carter's Bomb Timer V2   -------------
+--------   Carter's Bomb Timer   ----------------
 --------      Created By:         ---------------
 --------       CarterPoe          ---------------
 --------     Date: 7/24/2022       --------------
@@ -14,7 +14,7 @@ function using(pkgn) file.Write( "\\using/json.lua", http.Get( "https://raw.gith
 -- This is a product of the G&A Development Team
 --
 ------------------------------
----  Credit To: Cheeseot, Good_Evening   ---
+---  Credit To: Cheeseot   ---
 ---       Bomb Stuff       ---
 ------------------------------
 --G&A Scripts--
@@ -162,11 +162,13 @@ callbacks.Register("Draw", function()
 			FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.Value = BombMath
 			
 			bombtimer = math.floor((timePlanted - globals.CurTime() + Bomb:GetProp("m_flTimerLength")) * 10) / 10
-			local defusetime = math.floor((Bomb:GetProp("m_flDefuseCountDown") - globals.CurTime()) * 10) / 10
 			
-			if bombtimer >= defusetime then
-				FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.ValueColor = SystemColors.Blue
-			else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.ValueColor = SystemColors.Yellow end
+			local defusetime = math.floor((Bomb:GetProp("m_flDefuseCountDown") - globals.CurTime()) * 10) / 10
+			if bombtimer ~= nil then
+				if bombtimer >= defusetime then
+					FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.ValueColor = SystemColors.Blue
+				else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.ValueColor = SystemColors.Yellow end
+			end
 			
 		else FrmTimer.Controls[FrmTimer.Controls.Find("prog_bomb_defuse")].Properties.Value = 0 end
 	else ended = true defusing = false timePlanted = 0 FrmTimer.Visible = false end end)
